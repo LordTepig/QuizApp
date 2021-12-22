@@ -1,10 +1,10 @@
-package com.bowen.quiz
+package com.bowen.quiz_fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 
-import com.bowen.quiz.databinding.ActivityMainBinding
+import com.bowen.quiz_fragments.databinding.ActivityMainBinding
 
 lateinit var binding: ActivityMainBinding
 

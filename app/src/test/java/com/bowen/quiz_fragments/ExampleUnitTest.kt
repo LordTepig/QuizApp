@@ -1,4 +1,4 @@
-package com.bowen.quiz
+package com.bowen.quiz_fragments
 
 import org.junit.Test
 

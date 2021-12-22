@@ -1,4 +1,4 @@
-package com.bowen.quiz
+package com.bowen.quiz_fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.bowen.quiz.databinding.ActivityMainBinding
-import com.bowen.quiz.databinding.FragmentMainBinding
+import com.bowen.quiz_fragments.databinding.FragmentMainBinding
 
     const val KEY_CURRENT_QUESTION = "currentQuestionKey"
     val questionList = listOf(

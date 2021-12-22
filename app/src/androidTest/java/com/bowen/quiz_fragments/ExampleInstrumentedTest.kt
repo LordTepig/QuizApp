@@ -1,4 +1,4 @@
-package com.bowen.quiz
+package com.bowen.quiz_fragments
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
