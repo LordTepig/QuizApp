@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">Quiz</string>
+    <string name="app_name">Quiz_Fragments</string>
+    <string name="question1">Ada Lovelace was the world\'s first computer programmer </string>
+    <string name="question2">Albert Einstein discovered the nucleus atom</string>
+    <string name="question3">Isaac Newton developed a total of two laws to explain the orbits of planets</string>
+    <string name="question4">Charles Darwin was credited for the theory of natural selection </string>
+    <string name="question5">Thomas Edison discovered electricity</string>
+    <string name="correct"> Correct!</string>
+    <string name="incorrect">Incorrect!</string>
+    <string name="sample_question">Sample Question?</string>
+    <string name="false_text">FALSE</string>
+    <string name="refill">Refill, please</string>
+    <string name="true_text">TRUE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

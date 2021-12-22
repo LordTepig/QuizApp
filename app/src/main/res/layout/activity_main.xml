@@ -6,55 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/quiz_question_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="Sample Question?"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/true_answer_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TRUE"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/false_answer_button"
-        app:layout_constraintTop_toBottomOf="@id/quiz_question_textView"
-        app:layout_constraintEnd_toStartOf="@id/center_guideline"/>
-
-    <Button
-        android:id="@+id/false_answer_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FALSE"
-        android:background="#FF9999"
-        android:layout_marginStart="24dp"
-        app:layout_constraintTop_toBottomOf="@id/quiz_question_textView"
-        app:layout_constraintStart_toStartOf="@id/center_guideline"
-        />
-
-    <Button
-        android:id="@+id/next_question_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text = "Refill, please"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/center_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent=".50" />
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_fragment"
+        android:name="com.bowen.quiz.MainFragment">
+    </fragment>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
