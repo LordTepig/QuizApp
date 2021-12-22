@@ -9,42 +9,40 @@
 
     <TextView
         android:id="@+id/quiz_question_textView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:text="@string/sample_question"
         android:textSize = "20sp"
         android:textColor="@color/white"
         android:gravity="center"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/vertical_center_guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/true_answer_button"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/true_answer_button"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="@string/true_text"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/false_answer_button"
-        app:layout_constraintTop_toBottomOf="@id/quiz_question_textView"
-        app:layout_constraintBottom_toBottomOf="@id/false_answer_button"
-        app:layout_constraintEnd_toStartOf="@id/vertical_center_guideline"/>
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="50dp"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_center_guideline"
+        app:layout_constraintStart_toEndOf="@id/vertical_center_guideline"
+        app:layout_constraintEnd_toEndOf="@id/false_answer_button"/>
 
     <Button
         android:id="@+id/false_answer_button"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:text="@string/false_text"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/true_answer_button"
-        app:layout_constraintTop_toBottomOf="@id/quiz_question_textView"
-        app:layout_constraintStart_toStartOf="@id/vertical_center_guideline"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toEndOf="@id/vertical_center_guideline"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_center_guideline"
+        app:layout_constraintEnd_toEndOf="@id/true_answer_button"
         />
 
     <Button
@@ -52,8 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text = "@string/refill"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
@@ -67,6 +65,12 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent=".50" />
 
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/horizontal_center_guideline"
+        android:layout_height = "wrap_content"
+        android:layout_width = "wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".50"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
