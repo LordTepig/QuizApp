@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quiz_Fragments</string>
+    <string name="app_name">Quiz_Part3</string>
     <string name="question1">Ada Lovelace was the world\'s first computer programmer </string>
     <string name="question2">Albert Einstein discovered the nucleus atom</string>
     <string name="question3">Isaac Newton developed a total of two laws to explain the orbits of planets</string>
@@ -13,4 +13,7 @@
     <string name="true_text">TRUE</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cheat">Cheat!</string>
+    <string name="idc">I don\'t care!</string>
+    <string name="confirm_cheat">Are you sure you want to cheat?</string>
 </resources>

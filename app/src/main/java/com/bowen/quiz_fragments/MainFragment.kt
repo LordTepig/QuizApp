@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.bowen.quiz_fragments.databinding.FragmentMainBinding
 
     const val KEY_CURRENT_QUESTION = "currentQuestionKey"
@@ -46,6 +47,13 @@ class MainFragment : Fragment() {
         }
         binding.quizQuestionTextView.setOnClickListener{
             nextQuestion()
+        }
+        binding.cheatButton.setOnClickListener {
+            val correctAnswer = questionList[currentQuestionIndex].answer
+
+            val action = MainFragmentDirections.actionMainFragmentToCheatFragment2(correctAnswer)
+            rootView.findNavController().navigate(action)
+
         }
         return rootView
     }
