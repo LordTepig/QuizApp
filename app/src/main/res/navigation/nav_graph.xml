@@ -11,7 +11,7 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_cheatFragment2"
+            android:id="@+id/action_mainFragment_to_cheatFragment"
             app:destination="@id/cheatFragment" />
         <action
             android:id="@+id/action_mainFragment_to_gameWonFragment"

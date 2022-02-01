@@ -6,18 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.findNavController
 import com.bowen.quiz_fragments.databinding.FragmentMainBinding
 
+
+
     const val KEY_CURRENT_QUESTION = "currentQuestionKey"
     val questionList = listOf(
-        MainFragment.Question(R.string.question1, true),
-        MainFragment.Question(R.string.question2, false),
-        MainFragment.Question(R.string.question3, false),
-        MainFragment.Question(R.string.question4, true),
-        MainFragment.Question(R.string.question5, false)
+        MainFragment.Question(R.string.question1, true, false),
+        MainFragment.Question(R.string.question2, false, false),
+        MainFragment.Question(R.string.question3, false, false),
+        MainFragment.Question(R.string.question4, true, false),
+        MainFragment.Question(R.string.question5, false, false)
     )
     var currentQuestionIndex = 0
+    var numCorrectAnswers = 0
+    var numIncorrectAnswers = 0
 
 class MainFragment : Fragment() {
 
@@ -25,6 +30,8 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
 
+    data class Question(val questionID: Int, val answer:Boolean, val hasCheated:Boolean){
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,9 +58,13 @@ class MainFragment : Fragment() {
         binding.cheatButton.setOnClickListener {
             val correctAnswer = questionList[currentQuestionIndex].answer
 
-            val action = MainFragmentDirections.actionMainFragmentToCheatFragment2(correctAnswer)
+            val action = MainFragmentDirections.actionMainFragmentToCheatFragment(correctAnswer)
             rootView.findNavController().navigate(action)
+        }
+        setFragmentResultListener("requestKey") { requestKey, bundle ->
+            val result = bundle.getString("bundleKey")
 
+            Toast.makeText(activity, "Cheating is wrong!", Toast.LENGTH_SHORT).show()
         }
         return rootView
     }
@@ -68,8 +79,7 @@ class MainFragment : Fragment() {
         savedInstanceState.putInt(KEY_CURRENT_QUESTION, currentQuestionIndex)
     }
 
-    data class Question(val questionID: Int, val answer:Boolean){
-    }
+
 
     fun nextQuestion(){
         val maxIndex = questionList.size - 1
@@ -87,9 +97,13 @@ class MainFragment : Fragment() {
 
     fun checkAnswer(userAnswer:Boolean){
         val correctAnswer = questionList[currentQuestionIndex].answer
-        if(userAnswer == correctAnswer)
-            Toast.makeText(activity,R.string.correct, Toast.LENGTH_SHORT).show() //display toast saying "Correct!"
-        else
+        if(userAnswer == correctAnswer) {
+            Toast.makeText(activity, R.string.correct, Toast.LENGTH_SHORT).show() //display toast saying "Correct!"
+            numCorrectAnswers++
+        }
+        else {
             Toast.makeText(activity, R.string.incorrect, Toast.LENGTH_SHORT).show() //display toast saying "Incorrect!"
+            numIncorrectAnswers++
+        }
     }
 }

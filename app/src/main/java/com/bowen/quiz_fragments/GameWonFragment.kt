@@ -21,6 +21,7 @@ class GameWonFragment : Fragment() {
         _binding = FragmentGameWonBinding.inflate(inflater, container, false)
         val rootView = binding.root
         // Inflate the layout for this fragment
+
         return rootView
     }
 
