@@ -17,4 +17,5 @@
     <string name="idc">I don\'t care!</string>
     <string name="confirm_cheat">Are you sure you want to cheat?</string>
     <string name="show_answer">Show Answer!</string>
+    <string name="you_won">You Won!</string>
 </resources>

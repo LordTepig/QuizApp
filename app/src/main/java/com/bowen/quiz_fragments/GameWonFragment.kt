@@ -20,6 +20,9 @@ class GameWonFragment : Fragment() {
     ): View? {
         _binding = FragmentGameWonBinding.inflate(inflater, container, false)
         val rootView = binding.root
+        val args = GameWonFragmentArgs.fromBundle(requireArguments())
+        numIncorrectAnswers = args.incorrectArg
+        binding.wrongAnswersTextView.text = "You have $numIncorrectAnswers wrong answers"
         // Inflate the layout for this fragment
 
         return rootView

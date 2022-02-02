@@ -30,7 +30,7 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
 
-    data class Question(val questionID: Int, val answer:Boolean, val hasCheated:Boolean){
+    data class Question(val questionID: Int, val answer:Boolean, var hasCheated:Boolean){
     }
 
     override fun onCreateView(
@@ -45,9 +45,22 @@ class MainFragment : Fragment() {
         updateQuestionText()
         binding.trueAnswerButton.setOnClickListener {
             checkAnswer(true)
+
+            if(numCorrectAnswers == 3){
+                val action = MainFragmentDirections.actionMainFragmentToGameWonFragment(numIncorrectAnswers)
+                rootView.findNavController().navigate(action)
+            }
+
         }
         binding.falseAnswerButton.setOnClickListener {
             checkAnswer(false)
+
+            if(numCorrectAnswers == 3){
+                val action = MainFragmentDirections.actionMainFragmentToGameWonFragment(numIncorrectAnswers)
+                rootView.findNavController().navigate(action)
+
+            }
+
         }
         binding.nextQuestionButton.setOnClickListener {
             nextQuestion()
@@ -63,8 +76,9 @@ class MainFragment : Fragment() {
         }
         setFragmentResultListener("requestKey") { requestKey, bundle ->
             val result = bundle.getString("bundleKey")
+            questionList[currentQuestionIndex].hasCheated = true
 
-            Toast.makeText(activity, "Cheating is wrong!", Toast.LENGTH_SHORT).show()
+
         }
         return rootView
     }
@@ -97,13 +111,17 @@ class MainFragment : Fragment() {
 
     fun checkAnswer(userAnswer:Boolean){
         val correctAnswer = questionList[currentQuestionIndex].answer
-        if(userAnswer == correctAnswer) {
+        if((userAnswer == correctAnswer) && !(questionList[currentQuestionIndex].hasCheated)) {
             Toast.makeText(activity, R.string.correct, Toast.LENGTH_SHORT).show() //display toast saying "Correct!"
             numCorrectAnswers++
         }
-        else {
+        else if((userAnswer == correctAnswer && (questionList[currentQuestionIndex].hasCheated))){
+            Toast.makeText(activity, "Cheating is wrong!", Toast.LENGTH_SHORT).show()
+        }
+        else if (userAnswer != correctAnswer){
             Toast.makeText(activity, R.string.incorrect, Toast.LENGTH_SHORT).show() //display toast saying "Incorrect!"
             numIncorrectAnswers++
         }
+
     }
 }
