@@ -18,4 +18,6 @@
     <string name="confirm_cheat">Are you sure you want to cheat?</string>
     <string name="show_answer">Show Answer!</string>
     <string name="you_won">You Won!</string>
+    <string name="description_one">There have been many developing branches of science that range from computer science, physics, astronomy, to biology. As technology evolves the different branches of science advance to offer new explanations.</string>
+    <string name="description_two">In this quiz app, the branches of science involved are computer science, chemistry, astronomy, biology, and physics. The scientists that are mentioned in these questions are Ada Lovelace, Albert Einstein, Isaac Newton, Charles Darwin, and Thomas Edison</string>
 </resources>
